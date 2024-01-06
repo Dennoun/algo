@@ -1,0 +1,82 @@
+ALGORITHM first_task
+
+VAR
+str1: STRING[50];
+str2: STRING[5];
+vowelCount: INTEGER := 0;
+wordCount: INTEGER := 0;
+charCount: INTEGER := 0;
+
+BEGIN 
+str2: {'a','e','i','o','u'};
+Write("Enter a sentence ending with a point: ");
+Read(str1);
+
+str1 := ToLower(str1);
+
+FOR i FROM 0 TO str1.length-1 STEP 1 DO
+	IF (str1[i] == " ") OR ( srt1[i] == ".") THEN
+		wordCount = wordCount + 1;
+    ELSE
+        charCount = charCount + 1;
+    END_IF
+    FOR j FROM 0 TO str2.length-1 STEP 1 DO
+	    IF( str1[i] == str2[j] )THEN
+		    vowelCount = vowelCount +1;
+	    END_IF
+    END_FOR
+END_FOR
+
+Write("The number of words is : ", wordCount);
+Write("The number of vowels is : ", vowelCount);
+Write("The number of characters is : ", charCount);
+
+END
+
+ALGORITHM  second_task
+
+VAR
+
+arr1 : ARRAY_OF INTEGER[50];
+arr2 : ARRAY_OF INTEGER[50];
+sum: INTEGER := 0;
+counter: INTEGER := 0;
+
+
+BEGIN
+
+arr1={3, 1, 7, 9};
+arr2 ={2, 4, 1, 9, 3};
+
+    FOR i FROM 0 to arr1.length-1 STEP 1 DO
+    
+        FOR j FROM 0 to arr2.length-1 STEP 1 DO
+            IF (arr1[i] == arr2[j]) THEN
+                counter = counter + 1;
+            END_IF
+        END_FOR
+
+        IF (counter == 0) THEN 
+                sum = sum + arr1[i];
+        END_IF
+        counter = 0;
+    END_FOR
+
+    FOR i FROM 0 to arr2.length-1 STEP 1 DO
+    
+        FOR j FROM 0 to arr1.length-1 STEP 1 DO
+            IF (arr2[i] == arr1[j]) THEN
+                counter = counter + 1;
+            END_IF
+        END_FOR
+
+        IF (counter == 0) THEN 
+                sum = sum + arr2[i];
+        END_IF
+        counter = 0;
+    END_FOR
+
+    Write("the sum of distinct elements are : ", sum)
+END
+
+
